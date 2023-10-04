@@ -34,7 +34,7 @@ This script uses Selenium to automate the voting process on a website and monito
 
 5. Configure the script:
 
-    Replace "https://afrikamasharikitransportawards.com/vote-2/" with the URL of the voting page you want to automate.
+    Replace *voting_page_url* with the URL of the voting page you want to automate.
 
     Set up the SMS sending parameters in the send_sms function.
     Currently using [Sema SMS](https://semasms.co.ke/login) as my provider. You will need to register with your Preferred SMS partner and follow their documentation to integrate appropriately the SMS sending function.

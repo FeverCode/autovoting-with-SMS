@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
+from decouple import config
 
 #This updated script doesn't require logging in or registration and doesn't send SMS to the user, If you require
 #such functions run vote.py script
@@ -10,14 +11,14 @@ def perform_vote():
     driver = webdriver.Firefox()  # Or webdriver.Firefox() for Firefox
 
     # Navigate to the website
-    website_url = "https://afrikamasharikitransportawards.com/"
+    website_url = config("website_url")
     driver.get(website_url)
 
     # Wait for registration to complete (adjust the sleep time as needed)
     time.sleep(10)
 
     # Navigate to the voting page
-    voting_page_url = "https://afrikamasharikitransportawards.com/vote-2/"
+    voting_page_url = config("voting_page_url")
     driver.get(voting_page_url)
 
     # Scroll to the section with the voting options
@@ -81,5 +82,5 @@ def perform_vote():
 while True:
     print("Performing vote...")
     perform_vote()
-    print("Waiting for 2 minutes before the next vote...")
-    time.sleep(150)  # 900 seconds = 10 minutes
+    print("Waiting for 2.5 minutes before the next vote...")
+    time.sleep(150)  # 150 seconds = 2.5 minutes

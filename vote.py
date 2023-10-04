@@ -38,8 +38,8 @@ def perform_vote():
     driver = webdriver.Edge()  # Or webdriver.Firefox() for Firefox
 
     # Navigate to the website
-    # website_url = "https://afrikamasharikitransportawards.com/login/" (Uncomment if you need to login directly without registering new user)
-    website_url = "https://afrikamasharikitransportawards.com/"
+    # website_login_url = config("website_login_url") (Uncomment if you need to login directly without registering new user)
+    website_url = config("website_url")
     driver.get(website_url)
 
     # Fill out the login form (Uncomment appropriately upto line 57 if you have existing login details)
@@ -110,7 +110,7 @@ def perform_vote():
     time.sleep(10)
 
     # Navigate to the voting page
-    voting_page_url = "https://afrikamasharikitransportawards.com/vote-2/"
+    voting_page_url = config("voting_page_url")
     driver.get(voting_page_url)
 
     # Scroll to the section with the voting options
@@ -145,7 +145,7 @@ def perform_vote():
     vote_button_xpath = ".//input[@name='vote' and @value='   VOTE   ']"
     vote_button = form.find_element(By.XPATH, vote_button_xpath)
 
-    # # Submit your vote
+    # Submit your vote
     vote_button = driver.find_element(By.NAME, "vote")
 
     # Click the "Vote" button
@@ -206,4 +206,4 @@ while True:
     print("Performing vote...")
     perform_vote()
     print("Waiting for 3 minutes before the next vote...")
-    time.sleep(180)  # 900 seconds = 10 minutes
+    time.sleep(180)  # 180 seconds = 3 minutes
